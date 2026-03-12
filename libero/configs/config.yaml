@@ -22,3 +22,4 @@ task_embedding_one_hot_offset: 1
 pretrain: false
 pretrain_model_path: ""
 benchmark_name: "LIBERO_SPATIAL"
+n_train_tasks: null

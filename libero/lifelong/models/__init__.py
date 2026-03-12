@@ -1,3 +1,4 @@
+from libero.lifelong.models.bc_clip_flow_policy import BCClipFlowPolicy
 from libero.lifelong.models.bc_rnn_policy import BCRNNPolicy
 from libero.lifelong.models.bc_transformer_policy import BCTransformerPolicy
 from libero.lifelong.models.bc_vilt_policy import BCViLTPolicy

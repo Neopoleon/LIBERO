@@ -174,10 +174,13 @@ def main(hydra_cfg):
     with open(os.path.join(cfg.experiment_dir, "config.json"), "w") as f:
         json.dump(cfg, f, cls=NpEncoder, indent=4)
 
-    if cfg.lifelong.algo == "Multitask":
+    n_train = cfg.n_train_tasks if cfg.n_train_tasks is not None else n_tasks
+    train_datasets = datasets[:n_train]
+
+    if cfg.lifelong.algo in ("Multitask", "CLIPMultitask"):
 
         algo.train()
-        s_fwd, l_fwd = algo.learn_all_tasks(datasets, benchmark, result_summary)
+        s_fwd, l_fwd = algo.learn_all_tasks(train_datasets, benchmark, result_summary)
         result_summary["L_fwd"][-1] = l_fwd
         result_summary["S_fwd"][-1] = s_fwd
 

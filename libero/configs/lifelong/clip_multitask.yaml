@@ -1,0 +1,16 @@
+# @package _global_
+lifelong:
+  algo: CLIPMultitask
+  eval_in_train: false
+
+# BCClipFlowPolicy requires packed CLIP token ids+mask as task embeddings.
+task_embedding_format: "clip_live"
+
+# π-CLIP-DiT training defaults — override on CLI if needed.
+n_train_tasks: 8
+train:
+  n_epochs: 500
+  batch_size: 32
+  num_workers: 4
+eval:
+  eval_every: 50   # expensive sim eval; keep infrequent unless eval_in_train=true

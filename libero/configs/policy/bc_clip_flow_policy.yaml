@@ -1,0 +1,14 @@
+policy_type: BCClipFlowPolicy
+freeze_clip: false
+action_chunk_size: 10
+embed_size: 512
+num_heads: 8
+depth: 6
+ff_hidden: 2048
+# Path to action_stats.npz produced by scripts/compute_action_stats.py.
+# Override with an absolute path on the CLI: policy.action_stats_path=/abs/path/action_stats.npz
+action_stats_path: "action_stats.npz"
+
+defaults:
+    - data_augmentation@color_aug: batch_wise_img_color_jitter_group_aug.yaml
+    - data_augmentation@translation_aug: translation_aug.yaml
